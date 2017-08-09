@@ -19,7 +19,7 @@ auth.set_access_token(access_token, access_secret)
 api = tweepy.API(auth)
 
 user = api.get_user('asankadharma')
-print "wow TheEllenShow has: " + str(user.followers_count) + " followers!"
+print "wow Asanka has: " + str(user.followers_count) + " followers!"
 for friend in user.friends():
 	print friend.screen_name
 
@@ -34,7 +34,7 @@ for friend in user.friends():
 #         	return True
 #     	def on_error(self, status):
 # 	        print(status)
-# 	    	return True
+# 	    	return True spot
 # twitter_stream = Stream(auth, MyListener())
 # twitter_stream.filter(track=['trump'])
 
