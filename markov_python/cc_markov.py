@@ -14,7 +14,7 @@ Markov Chain generator
 
 class MarkovChain:
 
-  def __init__(self, num_key_words=5):
+  def __init__(self, num_key_words=10):
     self.num_key_words = num_key_words
     self.lookup_dict = defaultdict(list)
     self._punctuation_regex = re.compile('[,.!;\?\:\-\[\]\n]+')

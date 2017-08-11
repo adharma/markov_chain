@@ -1,3 +1,4 @@
+import os
 import re
 import json
 import glob
@@ -5,14 +6,22 @@ import time
 from markov_python.cc_markov import MarkovChain
 from pprint import pprint
 
+
+"""initative variables and instances"""
 tweet_length = 166
 counter = 1
 mc = MarkovChain()
 run = True
+sleep_time = 0
+
+"""clear screen"""
+os.system('clear')
 
 """read merged JSON file trump_tweets --- into data variable"""
+print "\n****************************************"
 print "reading trump tweets from JSON file"
-time.sleep (5)
+print "****************************************\n"
+time.sleep (sleep_time)
 with open("trump_tweets.json", "r") as data_file:
 	data = json.load(data_file)
 
@@ -21,13 +30,29 @@ for i in range(0, len(data)):
 	print (data[i]["text"])
 	mc.add_string(data[i]["text"])
 	counter += 1
-print "\ntotal number of tweets collected: %d \n" % (counter)
-time.sleep (5)
+time.sleep (sleep_time)
 
-"""Generate Markov tweets, and match the first element with a specific word"""
+"""clear screen"""
+os.system('clear')
+print "\n****************************************"
+print "tweets collected: %d" % (counter)
+print "****************************************\n"
+time.sleep (sleep_time)
+
+"""get start of tweet as inputs from user"""
+
+user_first_word = raw_input("Enter the first word of your tweet:\n")
+user_second_word = raw_input("Enter the second word of your tweet:\n")
+user_third_word = raw_input("Enter the third word of your tweet:\n")
+
+"""clear screen"""
+os.system('clear')
+
+"""Generate Markov tweets, and matches leading words of the string, with the user inputs"""
+print "\n****************************************"
 print "generating Markov tweets"
-print "*****\n"
-time.sleep (5)
+print "****************************************\n"
+time.sleep (sleep_time)
 total_time = 0
 t1 = time.time()
 while run == True:
@@ -36,11 +61,11 @@ while run == True:
 	second_word = full_tweet.split(' ', 2)[1]
 	third_word = full_tweet.split(' ', 3)[2]
 	fourth_word = full_tweet.split(' ', 4)[3]
-	if first_word == "i" and second_word == "am":
-		print "Full tweet: "+ full_tweet
+	if first_word == str(user_first_word):
+		print "\n*----->matched tweet: %s\n" % full_tweet
 		t2 = time.time()
 		total_time = t2-t1
-		print "total time to find 'i am': " + str(total_time) + "s"
+		print "\n*----->total time to find '%s %s %s': %ds\n" % (user_first_word, user_second_word, user_third_word, total_time)
 		run = False
 	else:
 		print "generated tweet does not match...trying again. " + first_word + " " + second_word + " " + third_word + " " + fourth_word
