@@ -17,9 +17,9 @@ for i in range(0, len(data)):
 	counter += 1
 print "total number of tweets collected: %d \n" % (counter)
 
-tweet_length = 200
+tweet_length = 166
 print "generating Markov tweets"
 print "***** \n"
 time.sleep (2)
-for i in range(200):
+for i in range(10):
 	print "Markov Trump tweet-->" + u' '.join(mc.generate_text(tweet_length))
