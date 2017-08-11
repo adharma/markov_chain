@@ -12,7 +12,7 @@ tweet_length = 10
 counter = 1
 mc = MarkovChain()
 run = True
-sleep_time = 0
+sleep_time = 5
 
 """clear screen"""
 os.system('clear')
@@ -40,9 +40,9 @@ print "****************************************\n"
 time.sleep (sleep_time)
 
 """get start of tweet as inputs from user"""
-
-user_first_word = raw_input("Enter the first word of your tweet:\n")
-user_second_word = raw_input("Enter the second word of your tweet:\n")
+print "To help us generate an appropriate Trump tweet for you - enter 2 words."
+user_first_word = raw_input("Enter the first word:\n")
+user_second_word = raw_input("Enter the second word:\n")
 # user_third_word = raw_input("Enter the third word of your tweet:\n")
 
 """clear screen"""
