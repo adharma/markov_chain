@@ -14,7 +14,7 @@ Markov Chain generator
 
 class MarkovChain:
 
-  def __init__(self, num_key_words=10):
+  def __init__(self, num_key_words=2):
     self.num_key_words = num_key_words
     self.lookup_dict = defaultdict(list)
     self._punctuation_regex = re.compile('[,.!;\?\:\-\[\]\n]+')
@@ -61,7 +61,7 @@ class MarkovChain:
   " Generates text based on the data the Markov Chain contains
   " max_length is the maximum number of words to generate
   """
-  def generate_text(self, max_length=166):
+  def generate_text(self, max_length=10):
     context = deque()
     output = []
     if len(self.lookup_dict) > 0:

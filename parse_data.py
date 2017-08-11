@@ -8,7 +8,7 @@ from pprint import pprint
 
 
 """initative variables and instances"""
-tweet_length = 166
+tweet_length = 3
 counter = 1
 mc = MarkovChain()
 run = True
@@ -25,13 +25,12 @@ time.sleep (sleep_time)
 with open("trump_tweets.json", "r") as data_file:
 	data = json.load(data_file)
 
-"""add each tweet, line by line, to the Markov Chain instance mc"""
+"""add the text of each tweet, line by line, to the Markov Chain instance 'mc'"""
 for i in range(0, len(data)):
 	print (data[i]["text"])
 	mc.add_string(data[i]["text"])
 	counter += 1
 time.sleep (sleep_time)
-mc.add_file("trump_tweets.json")
 
 """clear screen"""
 os.system('clear')
@@ -57,11 +56,11 @@ time.sleep (sleep_time)
 total_time = 0
 t1 = time.time()
 while run == True:
-	full_tweet = u' '.join(mc.generate_text(tweet_length))
+	full_tweet = u' '.join(mc.generate_text())
 	first_word = full_tweet.split(' ', 1)[0]
 	second_word = full_tweet.split(' ', 2)[1]
 	third_word = full_tweet.split(' ', 3)[2]
-	fourth_word = full_tweet.split(' ', 4)[3]
+	print full_tweet
 	if first_word == str(user_first_word):
 		print "\n*----->matched tweet: %s\n" % full_tweet
 		t2 = time.time()
@@ -69,5 +68,6 @@ while run == True:
 		print "\n*----->total time to find '%s %s %s': %ds\n" % (user_first_word, user_second_word, user_third_word, total_time)
 		run = False
 	else:
-		print "generated tweet does not match...trying again. " + first_word + " " + second_word + " " + third_word + " " + fourth_word
+		pass
+		#print "generated tweet does not match...trying again. " + first_word + " " + second_word + " " + third_word + " " + fourth_word
 	
