@@ -12,7 +12,7 @@ tweet_length = 10
 counter = 1
 mc = MarkovChain()
 run = True
-sleep_time = 3
+sleep_time = 0
 
 """clear screen"""
 os.system('clear')
@@ -57,11 +57,13 @@ total_time = 0
 t1 = time.time()
 while run == True:
 	full_tweet = u' '.join(mc.generate_text())
-	first_word = full_tweet.split(' ', 1)[0]
-	second_word = full_tweet.split(' ', 2)[1]
-	# third_word = full_tweet.split(' ', 3)[2]
 	print full_tweet
-	if first_word == str(user_first_word):
+	first_word = full_tweet.split(' ', 1)[0]
+	second_word = full_tweet.split(' ', 100)[1]
+	# third_word = full_tweet.split(' ', 100)[2]
+	phrase = user_first_word + " " + user_second_word
+	if re.search(phrase, full_tweet): #str(phrase) in full_tweet:
+		os.system('clear')
 		print "\n*----->matched tweet: %s\n" % full_tweet
 		t2 = time.time()
 		total_time = t2-t1
