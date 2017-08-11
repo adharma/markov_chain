@@ -31,6 +31,7 @@ for i in range(0, len(data)):
 	mc.add_string(data[i]["text"])
 	counter += 1
 time.sleep (sleep_time)
+mc.add_file("trump_tweets.json")
 
 """clear screen"""
 os.system('clear')
