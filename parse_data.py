@@ -34,14 +34,14 @@ while run == True:
 	full_tweet = u' '.join(mc.generate_text(tweet_length))
 	first_word = full_tweet.split(' ', 1)[0]
 	second_word = full_tweet.split(' ', 2)[1]
-	# third_word = full_tweet.split(' ', 3)[2]
+	third_word = full_tweet.split(' ', 3)[2]
+	fourth_word = full_tweet.split(' ', 4)[3]
 	if first_word == "i" and second_word == "am":
-	# if first_word == "i":
 		print "Full tweet: "+ full_tweet
 		t2 = time.time()
 		total_time = t2-t1
 		print "total time to find 'i am': " + str(total_time) + "s"
 		run = False
 	else:
-		print "not the right tweet generated...let me try again. " + mc.generate_text(tweet_length)[1]
-t2 = time.time()
+		print "generated tweet does not match...trying again. " + first_word + " " + second_word + " " + third_word + " " + fourth_word
+	
