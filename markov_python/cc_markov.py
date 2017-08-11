@@ -14,14 +14,14 @@ Markov Chain generator
 
 class MarkovChain:
 
-  def __init__(self, num_key_words=10):
+  def __init__(self, num_key_words=5):
     self.num_key_words = num_key_words
     self.lookup_dict = defaultdict(list)
     self._punctuation_regex = re.compile('[,.!;\?\:\-\[\]\n]+')
     self._seeded = False
     self.__seed_me()
 
-  def __seed_me(self, rand_seed=None):
+  def __seed_me(self, rand_seed =None):
     if self._seeded is not True:
       try:
         if rand_seed is not None:
