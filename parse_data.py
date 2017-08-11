@@ -9,8 +9,8 @@ print "reading JSON file+++++++++"
 
 counter = 1
 for i in range(0, len(data)):
-	print str(counter) + " " + (data[i]["text"])
+	print (data[i]["text"])
 	counter += 1
 	print "\n"
 
-# print "total number of tweets collected: %d" % (counter)
+print "total number of tweets collected: %d" % (counter)
