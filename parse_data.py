@@ -8,11 +8,11 @@ from pprint import pprint
 
 
 """initative variables and instances"""
-tweet_length = 3
+tweet_length = 10
 counter = 1
 mc = MarkovChain()
 run = True
-sleep_time = 0
+sleep_time = 3
 
 """clear screen"""
 os.system('clear')
@@ -43,7 +43,7 @@ time.sleep (sleep_time)
 
 user_first_word = raw_input("Enter the first word of your tweet:\n")
 user_second_word = raw_input("Enter the second word of your tweet:\n")
-user_third_word = raw_input("Enter the third word of your tweet:\n")
+# user_third_word = raw_input("Enter the third word of your tweet:\n")
 
 """clear screen"""
 os.system('clear')
@@ -59,13 +59,13 @@ while run == True:
 	full_tweet = u' '.join(mc.generate_text())
 	first_word = full_tweet.split(' ', 1)[0]
 	second_word = full_tweet.split(' ', 2)[1]
-	third_word = full_tweet.split(' ', 3)[2]
+	# third_word = full_tweet.split(' ', 3)[2]
 	print full_tweet
 	if first_word == str(user_first_word):
 		print "\n*----->matched tweet: %s\n" % full_tweet
 		t2 = time.time()
 		total_time = t2-t1
-		print "\n*----->total time to find '%s %s %s': %ds\n" % (user_first_word, user_second_word, user_third_word, total_time)
+		print "\n*----->total time to find '%s %s': %ds\n" % (user_first_word, user_second_word, total_time)
 		run = False
 	else:
 		pass

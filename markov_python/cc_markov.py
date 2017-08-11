@@ -61,7 +61,7 @@ class MarkovChain:
   " Generates text based on the data the Markov Chain contains
   " max_length is the maximum number of words to generate
   """
-  def generate_text(self, max_length=10):
+  def generate_text(self, max_length=20):
     context = deque()
     output = []
     if len(self.lookup_dict) > 0:
