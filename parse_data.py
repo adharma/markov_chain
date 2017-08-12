@@ -12,7 +12,7 @@ tweet_length = 10
 counter = 1
 mc = MarkovChain()
 run = True
-sleep_time = 5
+sleep_time = 0
 
 """clear screen"""
 os.system('clear')
@@ -40,7 +40,7 @@ print "****************************************\n"
 time.sleep (sleep_time)
 
 """get start of tweet as inputs from user"""
-print "To help us generate an appropriate Trump tweet for you - enter 2 wordscleiclena."
+print "To help us generate an appropriate Trump tweet for you - enter 2 words."
 user_first_word = raw_input("Enter the first word:\n")
 user_second_word = raw_input("Enter the second word:\n")
 user_third_word = raw_input("Enter the third word of your tweet:\n")
@@ -57,19 +57,22 @@ total_time = 0
 t1 = time.time()
 while run == True:
 	full_tweet = u' '.join(mc.generate_text())
-	print full_tweet
+	if len(full_tweet.split(' ')) < 3 :
+		full_tweet = u' '.join(mc.generate_text())
+	else:
+		pass
 	first_word = full_tweet.split(' ', 1)[0]
 	second_word = full_tweet.split(' ', 2)[1]
+	print first_word + " " + second_word ### debugging
 	third_word = full_tweet.split(' ', 3)[2]
-	phrase = user_first_word + " " + user_second_word
-	if re.search(phrase, full_tweet): #str(phrase) in full_tweet:
+	phrase = user_first_word + " " + user_second_word + " " + user_third_word
+	if re.search(phrase, full_tweet):
 		os.system('clear')
 		print "\n*----->matched tweet: %s\n" % full_tweet
 		t2 = time.time()
 		total_time = t2-t1
-		print "\n*----->total time to find '%s %s': %ds\n" % (user_first_word, user_second_word, total_time)
+		print "\n*----->total time to find '%s %s %s': %ds\n" % (user_first_word, user_second_word, user_third_word, total_time)
 		run = False
 	else:
 		pass
-		#print "generated tweet does not match...trying again. " + first_word + " " + second_word + " " + third_word + " " + fourth_word
-	
+		print "generated tweet does not match...trying again. " + first_word + " " + second_word + " " + third_word
