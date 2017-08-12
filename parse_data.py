@@ -40,10 +40,10 @@ print "****************************************\n"
 time.sleep (sleep_time)
 
 """get start of tweet as inputs from user"""
-print "To help us generate an appropriate Trump tweet for you - enter 2 words."
+print "To help us generate an appropriate Trump tweet for you - enter 2 wordscleiclena."
 user_first_word = raw_input("Enter the first word:\n")
 user_second_word = raw_input("Enter the second word:\n")
-# user_third_word = raw_input("Enter the third word of your tweet:\n")
+user_third_word = raw_input("Enter the third word of your tweet:\n")
 
 """clear screen"""
 os.system('clear')
@@ -59,8 +59,8 @@ while run == True:
 	full_tweet = u' '.join(mc.generate_text())
 	print full_tweet
 	first_word = full_tweet.split(' ', 1)[0]
-	second_word = full_tweet.split(' ', 100)[1]
-	# third_word = full_tweet.split(' ', 100)[2]
+	second_word = full_tweet.split(' ', 2)[1]
+	third_word = full_tweet.split(' ', 3)[2]
 	phrase = user_first_word + " " + user_second_word
 	if re.search(phrase, full_tweet): #str(phrase) in full_tweet:
 		os.system('clear')
