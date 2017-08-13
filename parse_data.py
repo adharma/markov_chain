@@ -57,21 +57,25 @@ total_time = 0
 t1 = time.time()
 while run == True:
 	full_tweet = u' '.join(mc.generate_text())
-	if len(full_tweet.split(' ')) < 3 :
+	print "full split array debug:" ### debugging
+	print full_tweet.split(' ') ### debugging
+	while len(full_tweet.split(' ')) < 3 :
 		full_tweet = u' '.join(mc.generate_text())
 	else:
 		pass
 	first_word = full_tweet.split(' ', 1)[0]
 	second_word = full_tweet.split(' ', 2)[1]
-	print first_word + " " + second_word ### debugging
+	print "first + second: " + first_word + " " + second_word ### debugging
+	print "full: " + full_tweet ### debugging
+
 	third_word = full_tweet.split(' ', 3)[2]
 	phrase = user_first_word + " " + user_second_word + " " + user_third_word
 	if re.search(phrase, full_tweet):
 		os.system('clear')
-		print "\n*----->matched tweet: %s\n" % full_tweet
+		print "*----->matched tweet: %s\n" % full_tweet
 		t2 = time.time()
 		total_time = t2-t1
-		print "\n*----->total time to find '%s %s %s': %ds\n" % (user_first_word, user_second_word, user_third_word, total_time)
+		print "*----->total time to find '%s %s %s': %ds\n" % (user_first_word, user_second_word, user_third_word, total_time)
 		run = False
 	else:
 		pass
