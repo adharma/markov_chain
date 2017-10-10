@@ -11,15 +11,15 @@ tweet_length = 10
 counter = 1
 mc = MarkovChain()
 run = True
-sleep_time = 0
+sleep_time = 5
 
 """clear screen"""
 os.system('clear')
 
 """read merged JSON file trump_tweets --- into data variable"""
-print "\n****************************************"
+print "\n********************************************************************************"
 print "reading trump tweets from JSON file into Markov generator"
-print "****************************************\n"
+print "********************************************************************************\n"
 time.sleep (sleep_time)
 with open("trump_tweets.json", "r") as data_file:
 	data = json.load(data_file)
@@ -38,25 +38,26 @@ time.sleep (sleep_time)
 
 """clear screen"""
 os.system('clear')
-print "\n****************************************"
+print "\n********************************************************************************"
 print "tweets collected: %d" % (counter)
-print "****************************************\n"
+print "********************************************************************************\n"
 time.sleep (sleep_time)
 
 """get start of tweet as inputs from user"""
+print "********************************************************************************\n"
 print "To help generate an appropriate Trump tweet for you - enter a 3 word phrase."
-print "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-user_first_word = raw_input("Enter the first word   :")
-user_second_word = raw_input("Enter the second word  :")
-user_third_word = raw_input("Enter the third word   :")
+print "********************************************************************************\n"
+user_first_word = raw_input("Enter the first word   :\n")
+user_second_word = raw_input("Enter the second word  \n:")
+user_third_word = raw_input("Enter the third word   :\n")
 
 """clear screen"""
 os.system('clear')
 
 """Generate Markov tweets, and matches leading words of the string, with the user inputs"""
-print "\n****************************************"
+print "\n********************************************************************************"
 print "generating Markov tweets"
-print "****************************************\n"
+print "********************************************************************************\n"
 time.sleep (sleep_time)
 total_time = 0
 t1 = time.time()
