@@ -47,9 +47,9 @@ time.sleep (sleep_time)
 print "********************************************************************************\n"
 print "To help generate an appropriate Trump tweet for you - enter a 3 word phrase."
 print "********************************************************************************\n"
-user_first_word = raw_input("Enter the first word   :\n")
-user_second_word = raw_input("Enter the second word  \n:")
-user_third_word = raw_input("Enter the third word   :\n")
+user_first_word = raw_input("Enter the first word:\n")
+user_second_word = raw_input("Enter the second word:\n")
+user_third_word = raw_input("Enter the third word:\n")
 
 """clear screen"""
 os.system('clear')
